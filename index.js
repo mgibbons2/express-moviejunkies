@@ -14,6 +14,9 @@ app.get('/genre', function(req,res){
 app.get('/decade', function(req,res) {
     res.sendFile(__dirname + '/views/decade.html');
 });
+app.get('/login', function(req,res) {
+    res.sendFile(__dirname + '/views/loginPage.html');
+});
 app.listen(server_port, function() {
     console.log("Listening on port : " + server_port);
 });
