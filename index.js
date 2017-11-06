@@ -17,6 +17,9 @@ app.get('/decade', function(req,res) {
 app.get('/login', function(req,res) {
     res.sendFile(__dirname + '/views/loginPage.html');
 });
+app.get('/genre/horror', function(req,res) {
+    res.sendFile(__dirname + '/views/horrorPage.html');
+});
 app.listen(server_port, function() {
     console.log("Listening on port : " + server_port);
 });

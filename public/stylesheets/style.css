@@ -107,7 +107,7 @@ textarea:focus, input:focus{
 .footerbackground {
   grid-row: 1;
   grid-column: 1;
-  background-image: url("../images/hypnotize.png");
+  background-image: url("/images/hypnotize.png");
   background-repeat: repeat;
   text-align: center;
   font-family: "Helvetica-light";
@@ -122,7 +122,7 @@ textarea:focus, input:focus{
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  background-image: url("../images/hypnotize.png");
+  background-image: url("/images/hypnotize.png");
 }
 .genre {
   display: grid;
