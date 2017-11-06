@@ -1,0 +1,99 @@
+
+  body
+  {
+      margin: 0%;
+  }
+
+  form
+  {
+    height: 100%;
+    width: 100%;
+  }
+  .navbar 
+  {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr 2fr;
+    grid-template-rows: 15vh;
+    border-bottom: 0px solid white;
+    background-color: RGB(39, 158, 134)
+  }
+  .popcorn 
+  {
+    height: 75%; 
+    width: 75%;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .icon 
+  {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .navlinks 
+  {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    text-align: center;
+    line-height: 15vh;
+  }
+  .navlinks > a
+  {
+    font-family: "Helvetica-light";
+    font-size: 2vw;
+    text-decoration: none;
+    color: white;
+  }
+  .navlinks > a:hover
+  {
+    color: yellow;
+  }
+  .searchbar 
+  {
+    grid-column: 3;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    grid-template-rows: 100%;
+    text-align: center;
+    
+  }
+  .searchinput 
+  {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 2.5vh;
+    margin-top: 5.5vh;
+  }
+  textarea:focus, input:focus
+  {
+    outline: none;
+  }
+  .searchsvg 
+  {
+    grid-column: 2;
+    grid-row: 1;
+    height: 3vh;
+    width: 3vh;
+    margin-top: 5.5vh;
+    margin-left: 20px;
+  }
+
+  .login 
+  {
+    text-align: center;
+  }
+  .login > a
+
+  {
+    color: white;
+    font-family: "Helvetica-light";
+    font-size: 1.5vw;
+  }
+  .login > a:hover 
+  {
+    color: white;
+  }
