@@ -1,35 +1,34 @@
 var express = require('express');
-var app = express();
 var path = require('path');
-
-// getting-started.js
+var bodyParser = require('body-parser');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test', { useMongoClient: true });
-mongoose.Promise = global.Promise;
-var UserSchema = new mongoose.Schema({
-    email: {
-      type: String,
-      unique: true,
-      required: true,
-      trim: true
-    },
-    username: {
-      type: String,
-      unique: true,
-      required: true,
-      trim: true
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    passwordConf: {
-      type: String,
-      required: true,
-    }
-  });
-  var User = mongoose.model('User', UserSchema);
-  module.exports = User;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var app = express();
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'public')));
+
+var Account = require('./models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+mongoose.connect('mongodb://localhost/moviejunkies', { useMongoClient: true });
 
 
 var server_port = 3000;
@@ -54,3 +53,5 @@ app.get('/genre/horror', function(req,res) {
 app.listen(server_port, function() {
     console.log("Listening on port : " + server_port);
 });
+
+module.exports = app;
